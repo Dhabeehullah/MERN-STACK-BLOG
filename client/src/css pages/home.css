@@ -158,18 +158,33 @@ a{
 .home-posts-container{
   display: grid;
   max-width: 100%;
-  padding: 3rem;
-  gap: 2rem;
+  padding: 2rem;
+  gap: 3rem;
   grid-template-columns: 1fr 1fr 1fr;
 }
+
+.single-post-header{
+  color: #282829;
+}
+.home-description{
+  color: #4e5055;
+}
+
 .single-post-edit-container{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: 0.7rem;
   padding: 2rem;
   border-radius: 5%;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  
+}
+.single-post-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 .single-post-edit-container a{
   color: black;
@@ -284,7 +299,7 @@ a{
   display: grid;
   place-items: center;
   text-align: center;
-  min-width:500px ;
+  min-width:400px;
 }
 .profile__details{
   width: 100%;
@@ -558,6 +573,20 @@ a{
 }
 
 @media screen and (max-width:500px){
+
+  .nav-container{
+    padding: 0 2rem;
+  }
+  .nav-menu{
+    top: 5rem;
+  }
+  .postitem-small{
+    align-self: center;
+  }
+/*===================================================SINGLE AUTHOR POSTS==========================*/
+  .container-for-padding{
+    padding-top: 7rem;
+  }
   /*authors page*/
   .authors-container{
       grid-template-columns: repeat(1,1fr);
@@ -610,8 +639,13 @@ a{
   }
   /* ========================single post edit============================*/
   .postdetail-container-2{
-    max-width: 350px;
+    max-width: 320px;
     padding: 2rem;
+  }
+  .single-post-category{
+    background-color: rgb(177, 176, 176);
+    color: white;
+    border-radius: 2px;
   }
   .postdetail-container-2 .home-post{
     height: 200px;
@@ -628,13 +662,24 @@ a{
     padding: 0.2rem 0.4rem;
   }
   .postdetail2{
-    align-self: start;
+    align-self: center;
   }
   .postdetail2 small{
     padding: 0.4rem 0.4rem !important;
   }
   .post-description{
     font-size: 0.9rem;
+  }
+  /*===============================U S E R P R O F I L E============================================*/
+  .profile__avatar img{
+    height: 210px;
+    width: 211px;
+  }
+  .profile__details{
+    max-width: 300px;
+  }
+  .profile__container{
+    max-width: 300px;
   }
 }
 

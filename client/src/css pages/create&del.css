@@ -22,6 +22,7 @@
 }
 @media(max-width:600px){
     .createpost-container-2{
-        max-width: 350px;
+        max-width: 300px;
     }
+    
 }

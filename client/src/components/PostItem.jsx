@@ -25,9 +25,9 @@ const PostItem = ({id,thumbnail,title,description,whenPost,category,authorId}) =
       <div className='single-post-edit-container'>
       <Link to={`/posts/${id}`} className='single-post-container'>
         <img className='home-post' src={`${process.env.REACT_APP_BASE_ASSET_URL}/uploads/${thumbnail}`} alt="post" />
-        <h3>{title}</h3>  
+        <h3 className='single-post-header'>{title}</h3>  
       </Link>
-        <div dangerouslySetInnerHTML={{ __html: description.substring(0,150) }} />
+        <div className='home-description' dangerouslySetInnerHTML={{ __html: description.substring(0,150) }} />
         <div className='single-post-edit-container-2'>
           <div>
             <PostAuthor authorId={authorId} whenPost={whenPost} id={id} />       

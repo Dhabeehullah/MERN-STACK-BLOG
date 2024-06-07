@@ -39,7 +39,7 @@ const EditPost = () => {
   ]
 
 
-  const categories = ['uncategorized','agriculture','business','education','entertainment','art','investment','weather']
+  const categories = ['Uncategorized','Agriculture','Business','Education','Entertainment','Art','Investment','Weather']
 
   useEffect(() => {
     const fetchData = async() => {

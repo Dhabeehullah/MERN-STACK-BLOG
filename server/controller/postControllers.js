@@ -74,8 +74,8 @@ const editPost = async(req,res,next) => {
             })
             const {thumbnail}=req.files
             if(thumbnail.size > 2000000) {
+                return next(new httpError("Thumbnail too big. Should be less than 2mb"))
             }
-            return next(new httpError("Thumbnail too big. Should be less than 2mb"))
             fileName = thumbnail.name;
             let splittedFilename = fileName.split('.')
             newFilename = splittedFilename [0] + uuid()+ '.' + splittedFilename[splittedFilename.length-1]
@@ -118,7 +118,6 @@ const deletePost = async(req,res,next) => {
                 res.status(200).json("post deleted successfully")
             }
         })
-
     } catch (error) {
         return next(new httpError(`message:${error.message}`))
     }
@@ -154,7 +153,7 @@ const getUserpost = async(req,res,next) => {
 //GET: api/posts
 const getPosts = async(req,res,next) => {
     try {
-        const getAllposts = await Post.find().sort({updateAt:-1})
+        const getAllposts = await Post.find().sort({createdAt:-1})
         res.json(getAllposts)
     } catch (error) {
         return next(new httpError(error,403))

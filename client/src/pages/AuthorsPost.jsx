@@ -30,7 +30,7 @@ const AuthorsPost = () => {
   return (
       <div className='container-for-padding'>
             {data.length > 0 ? (
-                <section className='authorspost-container'>
+                <section className='home-posts-container'>
                     {data.map(value => (
                         <PostItem
                             key={value._id}

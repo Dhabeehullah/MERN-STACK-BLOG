@@ -19,7 +19,6 @@ const PostDetail = () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/posts/${id}`)
         setPost(response.data)
-        console.log(response.data)
       } catch (error) {
         setError(error.message)
       }
@@ -37,23 +36,23 @@ const PostDetail = () => {
       {error && <p className='error-message'>{error}</p>}
       {post && (
         <div className='postdetail-container-2'>
-          <div className='single-post-edit-container-2'>
+        <div className='single-post-edit-container-2'>
             <div className='single-post-edit-container-3'>
               <PostAuthor authorId={post.creator} id={post._id} whenPost={post.createdAt} />
             </div>
             <div className='postdetail2'>
-              <small>{post.category}</small>
+              <small className='single-post-category'>{post.category}</small>
               {currentUser?.id === post.creator && (
                 <div className='postdetail2'>
                   <Link to={`/posts/${post._id}/edit`}><p className='editpost'>Edit</p></Link>
-                  <DeletePost id={id} />
+                  <DeletePost id={post._id} />
                 </div>
               )}
-            </div>
+            </div>    
           </div>
           <img className='home-post' src={`${process.env.REACT_APP_BASE_ASSET_URL}/uploads/${post.thumbnail}`} alt="post" />
           <h3>{post.title}</h3>
-          <div className='post-description' dangerouslySetInnerHTML={{ __html:post. description }} />
+          <div className='post-description' dangerouslySetInnerHTML={{ __html:post.description }} />         
         </div>
       )}
     </div>

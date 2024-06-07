@@ -10,8 +10,8 @@ const {noFound,errorHandling} = require('./middleware/error-middleware')
 
 const app = express()
 app.use(express.json({extended:true}))
-app.use(express.urlencoded({extended:true}))
-app.use(cors({credentials:true,origin:['http://localhost:3000', 'https://6661c4a89522ed009cc95b45--stalwart-alpaca-9fb951.netlify.app']}))
+app.use(express.urlencoded({extended:true}))                    
+app.use(cors({credentials:true,origin:['http://localhost:3000', 'https://stalwart-alpaca-9fb951.netlify.app/']}))
 app.use(upload())
 app.use('/uploads',express.static(__dirname + '/uploads'))
 

@@ -32,15 +32,15 @@ const PostAuthor = ({ authorId,whenPost, id }) => {
 
 
   return (
-    <Link to={`/posts/users/${authorId}`}>
+    
       <div className='single-post-edit-container-3'>
-      <img className='post-profile' src={`${process.env.REACT_APP_BASE_ASSET_URL}/uploads/${author?.avatar}`} alt="profileImage" />
+        <Link to={`/posts/users/${authorId}`}><img className='post-profile' src={`${process.env.REACT_APP_BASE_ASSET_URL}/uploads/${author?.avatar}`} alt="profileImage" /></Link>
       <div>
-        <Link to={`/posts/users/${id}`}><p className='post-authorname'>{author?.name}</p></Link>             
+        <Link to={`/posts/users/${authorId}`}><p className='post-authorname'>{author?.name}</p></Link>             
         <p><ReactTimeAgo date={new Date(whenPost)} locale='en-US' /></p>
       </div>
     </div>
-    </Link>
+    
     
   )
 }
