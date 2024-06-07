@@ -507,7 +507,7 @@ a{
   width: 100vw;
   display: grid;
   place-items: center;
-  background-color: #111827;
+  background-color: white;
 }
 
 .loader__image{
