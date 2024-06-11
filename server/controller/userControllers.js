@@ -104,6 +104,7 @@ const getAuthors =async(req, res, next) => {
 /* POST: /api/users/change-avatar */
 /* PROTECTED */
 const changeAvatar = async(req, res, next) => {
+    console.log(req.body)
     try {
         if(!req.files.avatar) {
             return next(new httpError("Please choose an image.", 422))
