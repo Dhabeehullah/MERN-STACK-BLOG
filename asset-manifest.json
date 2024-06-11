@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/MERN-STACK-BLOG/static/css/main.6f2389f4.css",
+    "main.js": "/MERN-STACK-BLOG/static/js/main.7c0774a7.js",
+    "static/media/banner4.png": "/MERN-STACK-BLOG/static/media/banner4.dd432ef294633fa1a24e.png",
+    "static/media/profileImg.png": "/MERN-STACK-BLOG/static/media/profileImg.7bb6bd56160eb2b89911.png",
+    "static/media/banner3.png": "/MERN-STACK-BLOG/static/media/banner3.c941c3e71021771287e8.png",
+    "static/media/banner2.png": "/MERN-STACK-BLOG/static/media/banner2.eadebe543dc02411b30a.png",
+    "static/media/banner1.png": "/MERN-STACK-BLOG/static/media/banner1.1fed28a107329ee0d268.png",
+    "static/media/websiteLogo.png": "/MERN-STACK-BLOG/static/media/websiteLogo.c75d164563fed6f1c8df.png",
+    "index.html": "/MERN-STACK-BLOG/index.html",
+    "main.6f2389f4.css.map": "/MERN-STACK-BLOG/static/css/main.6f2389f4.css.map",
+    "main.7c0774a7.js.map": "/MERN-STACK-BLOG/static/js/main.7c0774a7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6f2389f4.css",
+    "static/js/main.7c0774a7.js"
+  ]
+}
