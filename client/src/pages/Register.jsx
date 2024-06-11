@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../api/axios';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const Register = () => {
     }
 
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/users/register`, datas);
+      const response = await axios.post(`/api/users/register`, datas);
       const newUser = response.data;
       console.log(newUser);
       if (!newUser) {

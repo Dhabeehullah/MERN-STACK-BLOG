@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import profilePhoto from '../images/profileImg.png'
 import { FaEdit, FaCheck } from "react-icons/fa";
 import { UserContext } from '../context/userContext';
-import axios from 'axios';
+import axios from '../api/axios';
+import { BASE_URL } from '../api/axios';
 
 const UserProfile = () => {
   const [avatar, setAvatar] = useState('')
@@ -26,7 +27,7 @@ const UserProfile = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/users/${currentUser.id}`, {
+        const response = await axios.get(`/api/users/${currentUser.id}`, {
           withCredentials: true,
           headers: { Authorization: `Bearer ${token}` }
         })
@@ -56,7 +57,7 @@ const UserProfile = () => {
     try {
       const postData = new FormData()
       postData.set('avatar', avatar)
-      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/users/change-avatar`, postData, {
+      const response = await axios.post(`/api/users/change-avatar`, postData, {
         withCredentials: true,
         headers: { Authorization: `Bearer ${token}` }
       })
@@ -74,7 +75,7 @@ const UserProfile = () => {
       userData.set('email', email)
       userData.set('currentpassword', currentPassword)
       userData.set('newpassword', newPassword)
-      const response = await axios.patch(`${process.env.REACT_APP_BASE_URL}/users/edit-profile`, userData, {
+      const response = await axios.patch(`/api/users/edit-profile`, userData, {
         withCredentials: true,
         headers: { Authorization: `Bearer ${token}` }
       })
@@ -93,7 +94,7 @@ const UserProfile = () => {
         <div className="profile__details">
           <div className="avatar__wrapper">
             <div className="profile__avatar">
-              <img src={`${process.env.REACT_APP_BASE_ASSET_URL}/uploads/${avatar}`} className='profile-img' alt="Profile" />
+              <img src={`${BASE_URL}/uploads/${avatar}`} className='profile-img' alt="Profile" />
             </div>
             <form className="avatar__form">
               <input type="file" name="avatar" id="avatar" onChange={e => setAvatar(e.target.files[0])} accept='.png,.jpg,.jpeg' />
@@ -112,7 +113,7 @@ const UserProfile = () => {
           </form>
         </div>
       </div>
-    </section>
+      </section>
   )
 }
 

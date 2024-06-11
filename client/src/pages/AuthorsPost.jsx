@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import Posts from '../components/Posts'
-import axios from 'axios'
+import axios from '../api/axios'
 import Loader from '../components/Loader'
 import PostItem from '../components/PostItem'
 import { useParams } from 'react-router-dom'
@@ -15,7 +15,7 @@ const AuthorsPost = () => {
     const fetchPosts = async () => {
       setLoading(true)
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/posts/users/${id}`)
+        const response = await axios.get(`/api/posts/users/${id}`)
         setData(response?.data)
       } catch (err) {
         setError(err)

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { UserContext } from '../context/userContext';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../api/axios';
 
 
 const Login = () => {
@@ -16,7 +16,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/users/login`, data);
+            const response = await axios.post(`/api/users/login`, data);
             const user = response.data;
             setCurrentUser(user);
             navigate('/');

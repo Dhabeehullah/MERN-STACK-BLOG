@@ -2,7 +2,8 @@ import React,{useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import profileImg from '../images/profileImg.png'
 import Loader from '../components/Loader'
-import axios from 'axios'
+import axios from '../api/axios'
+import { BASE_URL } from '../api/axios'
 
 const Authors = () => {
   const [datas,setDatas] = useState([])  
@@ -13,7 +14,7 @@ const Authors = () => {
     const fetchAuthors = async() =>{
       setLoading(true)
       try {
-        const response  = await axios.get(`${process.env.REACT_APP_BASE_URL}/users/`)
+        const response  = await axios.get(`/api/users/`)
         setDatas(response?.data)
       } catch (error) {
         setError(error.message)
@@ -33,7 +34,7 @@ const Authors = () => {
             return(
               <Link to={`/posts/users/${value._id}`} key={value?._id}>
                 <div className='single-author'>
-                  <img src={`${process.env.REACT_APP_BASE_ASSET_URL}/uploads/${value.avatar}`} alt="" />
+                  <img src={`${BASE_URL}/uploads/${value.avatar}`} alt="" />
                   <div>
                     <p>{value.name}</p>
                     <p>{value.posts} Post</p>

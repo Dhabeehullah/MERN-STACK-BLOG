@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import axios from 'axios'
+import axios from '../api/axios'
+import { BASE_URL } from '../api/axios'
 import { UserContext } from '../context/userContext'
 import PostAuthor from '../components/PostAuthor'
 import Loader from '../components/Loader'
@@ -17,7 +18,7 @@ const PostDetail = () => {
     const fetchSinglePost = async () => {
       setLoading(true)
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/posts/${id}`)
+        const response = await axios.get(`/api/posts/${id}`)
         setPost(response.data)
       } catch (error) {
         setError(error.message)
@@ -50,7 +51,7 @@ const PostDetail = () => {
               )}
             </div>    
           </div>
-          <img className='home-post' src={`${process.env.REACT_APP_BASE_ASSET_URL}/uploads/${post.thumbnail}`} alt="post" />
+          <img className='home-post' src={`${BASE_URL}/uploads/${post.thumbnail}`} alt="post" />
           <h3>{post.title}</h3>
           <div className='post-description' dangerouslySetInnerHTML={{ __html:post.description }} />         
         </div>

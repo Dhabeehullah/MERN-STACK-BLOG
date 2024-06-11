@@ -2,7 +2,8 @@ import React, { useState,useEffect,useContext } from 'react'
 import { datas } from '../JS Objects/datas'
 import { Link,useNavigate } from 'react-router-dom'
 import { UserContext } from '../context/userContext'
-import axios from 'axios'
+import axios from '../api/axios'
+import { BASE_URL} from '../api/axios'
 import Loader from '../components/Loader'
 import DeletePost from './DeletePost'
 
@@ -23,10 +24,11 @@ const Dashboard = () => {
     const dashboardData = async() => {
       setLoading(true)
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/posts/users/${userId}`,{
+        const response = await axios.get(`/api/posts/users/${userId}`,{
           withCredentials: true,
           headers: { Authorization:`Bearer ${token}` }
         })
+        console.log(response.data);
         setPosts(response.data)
         setLoading(false)
       } catch (error) {
@@ -49,7 +51,7 @@ const Dashboard = () => {
           posts.map(post => {
             return <div className='dashboard-container-2'>
               <div className='dashboard-container-4'>
-                <img src={`${process.env.REACT_APP_BASE_ASSET_URL}/UPLOADS/${post.thumbnail}`} alt="" />
+                <img src={`${BASE_URL}/UPLOADS/${post.thumbnail}`} alt="" />
                 <p>{post.title}</p>
               </div>
               

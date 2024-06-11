@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import axios from '../api/axios'
 import { Link } from 'react-router-dom'
+import { BASE_URL } from '../api/axios'
 
 import ReactTimeAgo from 'react-time-ago'
 import TimeAgo from 'javascript-time-ago'
@@ -18,7 +19,7 @@ const PostAuthor = ({ authorId,whenPost, id }) => {
   useEffect(() => {
     const fetchAuthor = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/users/${authorId}`)
+        const response = await axios.get(`/api/users/${authorId}`)
         setAuthor(response?.data)
       } catch (error) {
         console.error('Error fetching the author data', error)
@@ -34,7 +35,7 @@ const PostAuthor = ({ authorId,whenPost, id }) => {
   return (
     
       <div className='single-post-edit-container-3'>
-        <Link to={`/posts/users/${authorId}`}><img className='post-profile' src={`${process.env.REACT_APP_BASE_ASSET_URL}/uploads/${author?.avatar}`} alt="profileImage" /></Link>
+        <Link to={`/posts/users/${authorId}`}><img className='post-profile' src={`${BASE_URL}/uploads/${author?.avatar}`} alt="profileImage" /></Link>
       <div>
         <Link to={`/posts/users/${authorId}`}><p className='post-authorname'>{author?.name}</p></Link>             
         <p><ReactTimeAgo date={new Date(whenPost)} locale='en-US' /></p>

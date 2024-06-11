@@ -1,7 +1,7 @@
 import React,{useContext,useState, useEffect} from 'react'
 import { useNavigate,Link,useLocation } from 'react-router-dom'
 import { UserContext } from '../context/userContext'
-import axios from 'axios'
+import axios from '../api/axios'
 import Loader from '../components/Loader'
 
 const DeletePost = ({id}) => {
@@ -20,7 +20,7 @@ const DeletePost = ({id}) => {
   const deletePost = async() => {
     setLoading(true)
     try {
-      const response = await axios.delete(`${process.env.REACT_APP_BASE_URL}/posts/${id}`,{
+      const response = await axios.delete(`/api/posts/${id}`,{
       withCredentials: true,
       headers: { Authorization:`Bearer ${token}` }
     })

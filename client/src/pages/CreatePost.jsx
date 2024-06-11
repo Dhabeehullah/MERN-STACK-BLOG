@@ -3,7 +3,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { UserContext } from '../context/userContext';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../api/axios';
 
 const CreatePost = () => {
   const [title, setTitle] = useState('');
@@ -56,7 +56,7 @@ const CreatePost = () => {
 
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_BASE_URL}/posts/`,
+        `/api/posts/`,
         postDetails,
         {
           withCredentials: true,

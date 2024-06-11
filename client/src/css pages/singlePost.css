@@ -1,0 +1,39 @@
+
+
+@media screen and (max-width:900px){
+   
+    /*single post*/
+    .postdetail-container-2{
+        max-width: 600px;
+    }
+  }
+@media(max-width:500px){
+/*single post*/
+.postdetail-container-2{
+    max-width: 350px;
+    padding: 2rem;
+}
+.postdetail-container-2 .home-post{
+    height: 200px;
+}
+.single-post-edit-container-2{
+    display: flex;
+    flex-direction: column;
+
+}
+.single-post-edit-container-3{
+    align-self: start;
+}
+.deletepost,.editpost{
+    padding: 0.2rem 0.4rem;
+}
+.postdetail2{
+    align-self: start;
+}
+.postdetail2 small{
+    padding: 0.4rem 0.4rem !important;
+}
+.post-description{
+    font-size: 0.9rem;
+}
+}

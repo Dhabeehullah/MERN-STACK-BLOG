@@ -3,7 +3,7 @@ import ReactQuill from 'react-quill'
 import { useNavigate, useParams } from 'react-router-dom'
 import 'react-quill/dist/quill.snow.css'
 import { UserContext } from '../context/userContext'
-import axios from 'axios'
+import axios from '../api/axios'
 
 const EditPost = () => {
   const [title,setTitle] = useState('')
@@ -44,7 +44,7 @@ const EditPost = () => {
   useEffect(() => {
     const fetchData = async() => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/posts/${id}`)
+        const response = await axios.get(`/api/posts/${id}`)
         setTitle(response.data.title)
         setDescription(response.data.description)
       } catch (error) {
@@ -63,7 +63,7 @@ const EditPost = () => {
 
     try {
       const response = await axios.patch(
-        `${process.env.REACT_APP_BASE_URL}/posts/${id}`,
+        `/api/posts/${id}`,
         postDetails,
         {
           withCredentials: true,
